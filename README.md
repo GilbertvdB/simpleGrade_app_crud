@@ -9,10 +9,9 @@ This is a simple version of a grading app. It's primarly function is to allow te
 After logging in teachers are presented with menu options that can update grades, view grades and view reportcards. 
 A student after logging in can only view his or her own reportcard.
 
-</br>This project shows the abilty to create, read, update and delete data from a database using python. 
-</br>Basic understanding of how database works. (Creating tables, views & inner join.)
-</br>
-
+</br>- This project shows the abilty to create, read, update and delete data from a database using python. 
+</br>- Basic understanding of how database works. (Creating tables, views & inner join, operators)
+</br>- Develope app to generate random information and populate the database. [random_info_generator](https://github.com/GilbertvdB/random_info_generator#random_info_generator)
 
 codesnippits:
 
