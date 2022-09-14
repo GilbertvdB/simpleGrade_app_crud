@@ -43,33 +43,29 @@ def print_format(row, number="off", head="off"):
     """ Prints the columns from tuples in a list neatly spaced. With the
      option the add sequential numbers in the front and or displaying the
      column headers. """
-    padding = column_string_length(row)
-    # display a list of tuples neatly
-    numbering = 0
+    len_list = column_string_length(row)  # list with max string lengths
+    total_rows = len(row)
+    l_max = len(str(total_rows))  # gets the spacing size for enumeration
+    num = 1
     for items in row:
-        string = ''
-        numbering += 1
-        if row.index(items) == 0:
-            numbering = 0
-            if head == "off":
+        i_length = len(items)  # total items in the tuple
+        x = 0
+        if head == 'off':  # skip header
+            if row.index(items) == 0:
                 continue
-        for x in items:
-            i = items.index(x)
-            if x is None:  # if the element is type None
-                blank = '-'
-                num = f"{numbering:<1}."
-                string += f'{blank:<{(padding[i])}}'
-            elif row.index(items) == 0:  # header
-                num = f"{' ':<1} "
-                string += f'{items[i]:<{(padding[i])}}'
+        if number == 'on':  # enable numbering
+            if head == 'on' and row.index(items) == 0:
+                print((' ' * l_max).rjust(l_max) + ' ', end=' ')
             else:
-                num = f"{numbering:<1}."
-                string += f'{items[i]:<{(padding[i])}}'
-        if number == "on":
-            print(num, string)
-        else:
-            print(string)
-    print()
+                print(str(num).rjust(l_max) + '.', end=' ')
+                num += 1
+        while x < i_length:  # print items in the tuple with correct padding
+            if items[x] is None:
+                print('-'.ljust(len_list[x]), end='')
+            else:
+                print(str(items[x]).ljust(len_list[x]), end='')
+            x += 1
+        print()
 
 
 def display_class_info():
